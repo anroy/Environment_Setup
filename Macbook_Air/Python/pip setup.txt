@@ -1,0 +1,91 @@
+pip setup
+
+Main reference:
+http://stackoverflow.com/questions/12277716/permission-denied-error-when-trying-to-install-pip-in-mac-os-x-lion
+https://packaging.python.org/installing/#requirements-for-installing-packages
+
+Last login: Sun Feb 19 17:43:22 on ttys001
+MacUser-no-MacBook-Air-4:~ macuser$ pip
+-bash: pip: command not found
+MacUser-no-MacBook-Air-4:~ macuser$ python get-pip.py
+python: can't open file 'get-pip.py': [Errno 2] No such file or directory
+MacUser-no-MacBook-Air-4:~ macuser$ pip install
+-bash: pip: command not found
+MacUser-no-MacBook-Air-4:~ macuser$ pip install -U pip
+-bash: pip: command not found
+MacUser-no-MacBook-Air-4:~ macuser$ pwd
+/Users/macuser
+MacUser-no-MacBook-Air-4:~ macuser$ ls
+Desktop		Documents	Downloads	Library		Movies		Music		Pictures	Public
+MacUser-no-MacBook-Air-4:~ macuser$ cd Documents/
+MacUser-no-MacBook-Air-4:Documents macuser$ ls
+About Stacks.lpdf	get-pip.py
+MacUser-no-MacBook-Air-4:Documents macuser$ ls
+About Stacks.lpdf	get-pip.py
+MacUser-no-MacBook-Air-4:Documents macuser$ python get-pip.py 
+  File "get-pip.py", line 1
+SyntaxError: Non-ASCII character '\xd1' in file get-pip.py on line 1, but no encoding declared; see http://www.python.org/peps/pep-0263.html for details
+MacUser-no-MacBook-Air-4:Documents macuser$ ls
+About Stacks.lpdf	get-pip.py
+MacUser-no-MacBook-Air-4:Documents macuser$ python get-pip.py 
+Collecting pip
+/var/folders/n4/lst7ktg92vj7h4pjy9fjx3sh0000gn/T/tmpeG7Zcf/pip.zip/pip/_vendor/requests/packages/urllib3/util/ssl_.py:318: SNIMissingWarning: An HTTPS request has been made, but the SNI (Subject Name Indication) extension to TLS is not available on this platform. This may cause the server to present an incorrect TLS certificate, which can cause validation failures. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/security.html#snimissingwarning.
+/var/folders/n4/lst7ktg92vj7h4pjy9fjx3sh0000gn/T/tmpeG7Zcf/pip.zip/pip/_vendor/requests/packages/urllib3/util/ssl_.py:122: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/security.html#insecureplatformwarning.
+  Downloading pip-9.0.1-py2.py3-none-any.whl (1.3MB)
+    100% |████████████████████████████████| 1.3MB 257kB/s 
+Collecting wheel
+  Downloading wheel-0.29.0-py2.py3-none-any.whl (66kB)
+    100% |████████████████████████████████| 71kB 381kB/s 
+Installing collected packages: pip, wheel
+Exception:
+Traceback (most recent call last):
+  File "/var/folders/n4/lst7ktg92vj7h4pjy9fjx3sh0000gn/T/tmpeG7Zcf/pip.zip/pip/basecommand.py", line 215, in main
+    status = self.run(options, args)
+  File "/var/folders/n4/lst7ktg92vj7h4pjy9fjx3sh0000gn/T/tmpeG7Zcf/pip.zip/pip/commands/install.py", line 342, in run
+    prefix=options.prefix_path,
+  File "/var/folders/n4/lst7ktg92vj7h4pjy9fjx3sh0000gn/T/tmpeG7Zcf/pip.zip/pip/req/req_set.py", line 784, in install
+    **kwargs
+  File "/var/folders/n4/lst7ktg92vj7h4pjy9fjx3sh0000gn/T/tmpeG7Zcf/pip.zip/pip/req/req_install.py", line 851, in install
+    self.move_wheel_files(self.source_dir, root=root, prefix=prefix)
+  File "/var/folders/n4/lst7ktg92vj7h4pjy9fjx3sh0000gn/T/tmpeG7Zcf/pip.zip/pip/req/req_install.py", line 1064, in move_wheel_files
+    isolated=self.isolated,
+  File "/var/folders/n4/lst7ktg92vj7h4pjy9fjx3sh0000gn/T/tmpeG7Zcf/pip.zip/pip/wheel.py", line 345, in move_wheel_files
+    clobber(source, lib_dir, True)
+  File "/var/folders/n4/lst7ktg92vj7h4pjy9fjx3sh0000gn/T/tmpeG7Zcf/pip.zip/pip/wheel.py", line 316, in clobber
+    ensure_dir(destdir)
+  File "/var/folders/n4/lst7ktg92vj7h4pjy9fjx3sh0000gn/T/tmpeG7Zcf/pip.zip/pip/utils/__init__.py", line 83, in ensure_dir
+    os.makedirs(path)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/os.py", line 157, in makedirs
+OSError: [Errno 13] Permission denied: '/Library/Python/2.7/site-packages/pip'
+MacUser-no-MacBook-Air-4:Documents macuser$ sudo python get-pip.py 
+
+WARNING: Improper use of the sudo command could lead to data loss
+or the deletion of important system files. Please double-check your
+typing when using sudo. Type "man sudo" for more information.
+
+To proceed, enter your password, or type Ctrl-C to abort.
+
+Password:
+The directory '/Users/macuser/Library/Caches/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+The directory '/Users/macuser/Library/Caches/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+Collecting pip
+/tmp/tmp71jvRb/pip.zip/pip/_vendor/requests/packages/urllib3/util/ssl_.py:318: SNIMissingWarning: An HTTPS request has been made, but the SNI (Subject Name Indication) extension to TLS is not available on this platform. This may cause the server to present an incorrect TLS certificate, which can cause validation failures. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/security.html#snimissingwarning.
+/tmp/tmp71jvRb/pip.zip/pip/_vendor/requests/packages/urllib3/util/ssl_.py:122: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/security.html#insecureplatformwarning.
+  Downloading pip-9.0.1-py2.py3-none-any.whl (1.3MB)
+    100% |████████████████████████████████| 1.3MB 571kB/s 
+Collecting wheel
+  Downloading wheel-0.29.0-py2.py3-none-any.whl (66kB)
+    100% |████████████████████████████████| 71kB 2.6MB/s 
+Installing collected packages: pip, wheel
+Successfully installed pip-9.0.1 wheel-0.29.0
+/tmp/tmp71jvRb/pip.zip/pip/_vendor/requests/packages/urllib3/util/ssl_.py:122: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/security.html#insecureplatformwarning.
+MacUser-no-MacBook-Air-4:Documents macuser$ 
+MacUser-no-MacBook-Air-4:Documents macuser$ 
+MacUser-no-MacBook-Air-4:Documents macuser$ pip install -U pip
+/Library/Python/2.7/site-packages/pip/_vendor/requests/packages/urllib3/util/ssl_.py:318: SNIMissingWarning: An HTTPS request has been made, but the SNI (Subject Name Indication) extension to TLS is not available on this platform. This may cause the server to present an incorrect TLS certificate, which can cause validation failures. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/security.html#snimissingwarning.
+  SNIMissingWarning
+/Library/Python/2.7/site-packages/pip/_vendor/requests/packages/urllib3/util/ssl_.py:122: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/security.html#insecureplatformwarning.
+  InsecurePlatformWarning
+Requirement already up-to-date: pip in /Library/Python/2.7/site-packages
+/Library/Python/2.7/site-packages/pip/_vendor/requests/packages/urllib3/util/ssl_.py:122: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/security.html#insecureplatformwarning.
+  InsecurePlatformWarning
